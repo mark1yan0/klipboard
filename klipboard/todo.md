@@ -2,6 +2,7 @@
 
 ## Functionality
 
+- [ ] add readme
 - [ ] add remove item
 - [ ] add support for images
 - [ ] add persistance
