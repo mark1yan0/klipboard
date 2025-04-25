@@ -19,6 +19,9 @@ struct ContentView: View {
                     Button("Copy") {
                         clipboardManager.copy(item: item)
                     }
+                    Button("Delete") {
+                        clipboardManager.remove(item: item)
+                    }
                 }
             }
         }

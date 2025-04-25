@@ -49,10 +49,17 @@ class ClipboardManager: ObservableObject {
     }
     
     // TODO: implement images
+    // TODO: create interface for the item
     public func copy(item: String) {
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
         pasteboard.setString(item, forType: .string)
+    }
+    
+    public func remove(item: String) {
+        if let index = copied.firstIndex(of: item) {
+            copied.remove(at: index)
+        }
     }
     
     deinit {

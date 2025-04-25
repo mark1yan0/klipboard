@@ -3,7 +3,8 @@
 ## Functionality
 
 - [ ] add readme
-- [ ] add remove item
+- [x] add remove item
+    - [ ] bulk remove
 - [ ] add support for images
 - [ ] add persistance
 - [ ] focus first item automatically
@@ -19,3 +20,6 @@
 - [ ] create a batter ui
 - [ ] define window width/height
 - [ ] create icons
+- [ ] add metadata
+    - [ ] details view
+    - [ ] copied at
