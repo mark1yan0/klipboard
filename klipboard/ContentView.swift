@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var clipboardManager = ClipboardManager()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            List(clipboardManager.copied, id: \.self) {
+                item in HStack() {
+                    Text(item)
+                    Button("Copy") {
+                        clipboardManager.copy(item: item)
+                    }
+                }
+            }
         }
         .padding()
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
     }
 }
 
