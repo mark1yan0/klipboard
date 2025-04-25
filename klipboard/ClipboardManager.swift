@@ -30,7 +30,7 @@ class ClipboardManager: ObservableObject {
     private func clipboardListener() {
         let pasteboard = NSPasteboard.general
         
-        guard pasteboard.changeCount == changedCount else {
+        guard pasteboard.changeCount != changedCount else {
             return
         }
     
