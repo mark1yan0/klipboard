@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct klipboardApp: App {
+struct main: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainScreen()
         }
     }
 }

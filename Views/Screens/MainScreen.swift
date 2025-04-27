@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainScreen: View {
     
     @StateObject private var clipboardManager = ClipboardManager()
     
@@ -31,5 +31,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MainScreen()
 }

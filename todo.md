@@ -23,3 +23,8 @@
 - [ ] add metadata
     - [ ] details view
     - [ ] copied at
+
+## Dev
+
+- [x] refactor folder structure
+- [ ] persistance with models and SwiftData

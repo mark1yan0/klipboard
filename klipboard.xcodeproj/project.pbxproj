@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		51922FFB2DBE561000D11067 /* todo.md in Resources */ = {isa = PBXBuildFile; fileRef = 51922FF62DBE561000D11067 /* todo.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		516F09E62DBC36C00080C6DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +31,11 @@
 		516F09D72DBC36BF0080C6DF /* klipboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = klipboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516F09E52DBC36C00080C6DF /* klipboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = klipboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		516F09EF2DBC36C00080C6DF /* klipboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = klipboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		51922FF42DBE561000D11067 /* klipboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = klipboard.entitlements; sourceTree = "<group>"; };
+		51922FF62DBE561000D11067 /* todo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = todo.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		516F09D92DBC36BF0080C6DF /* klipboard */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = klipboard;
-			sourceTree = "<group>";
-		};
 		516F09E82DBC36C00080C6DF /* klipboardTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = klipboardTests;
@@ -43,6 +44,26 @@
 		516F09F22DBC36C00080C6DF /* klipboardUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = klipboardUITests;
+			sourceTree = "<group>";
+		};
+		519230022DBE563800D11067 /* App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = App;
+			sourceTree = "<group>";
+		};
+		519230032DBE56AC00D11067 /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		519230052DBE56F200D11067 /* Services */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		519230062DBE570600D11067 /* Resources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,10 +96,15 @@
 		516F09CE2DBC36BF0080C6DF = {
 			isa = PBXGroup;
 			children = (
-				516F09D92DBC36BF0080C6DF /* klipboard */,
+				519230062DBE570600D11067 /* Resources */,
+				519230052DBE56F200D11067 /* Services */,
+				519230032DBE56AC00D11067 /* Views */,
+				519230022DBE563800D11067 /* App */,
 				516F09E82DBC36C00080C6DF /* klipboardTests */,
 				516F09F22DBC36C00080C6DF /* klipboardUITests */,
 				516F09D82DBC36BF0080C6DF /* Products */,
+				51922FF42DBE561000D11067 /* klipboard.entitlements */,
+				51922FF62DBE561000D11067 /* todo.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,7 +134,10 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				516F09D92DBC36BF0080C6DF /* klipboard */,
+				519230022DBE563800D11067 /* App */,
+				519230032DBE56AC00D11067 /* Views */,
+				519230052DBE56F200D11067 /* Services */,
+				519230062DBE570600D11067 /* Resources */,
 			);
 			name = klipboard;
 			packageProductDependencies = (
@@ -212,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51922FFB2DBE561000D11067 /* todo.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = klipboard/klipboard.entitlements;
+				CODE_SIGN_ENTITLEMENTS = klipboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -417,7 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = klipboard/klipboard.entitlements;
+				CODE_SIGN_ENTITLEMENTS = klipboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
