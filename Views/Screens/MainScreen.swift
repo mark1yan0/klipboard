@@ -13,14 +13,20 @@ struct MainScreen: View {
     
     var body: some View {
         VStack {
-            List(clipboardManager.copied, id: \.self) {
-                item in HStack() {
-                    Text(item)
-                    Button("Copy") {
-                        clipboardManager.copy(item: item)
-                    }
-                    Button("Delete") {
-                        clipboardManager.remove(item: item)
+            List {
+                ForEach(clipboardManager.copied) {
+                    item in HStack() {
+                        VStack {
+                            Text(item.text())
+                            // TODO: format
+                            Text("CreatedAt: \(item.date())")
+                        }
+                        Button("Copy") {
+                            clipboardManager.copy(item: item.text())
+                        }
+                        Button("Delete") {
+                            clipboardManager.remove(item: item)
+                        }
                     }
                 }
             }
@@ -33,3 +39,4 @@ struct MainScreen: View {
 #Preview {
     MainScreen()
 }
+

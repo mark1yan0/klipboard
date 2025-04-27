@@ -66,6 +66,11 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		519230092DBE5B1C00D11067 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +101,7 @@
 		516F09CE2DBC36BF0080C6DF = {
 			isa = PBXGroup;
 			children = (
+				519230092DBE5B1C00D11067 /* Models */,
 				519230062DBE570600D11067 /* Resources */,
 				519230052DBE56F200D11067 /* Services */,
 				519230032DBE56AC00D11067 /* Views */,
@@ -138,6 +144,7 @@
 				519230032DBE56AC00D11067 /* Views */,
 				519230052DBE56F200D11067 /* Services */,
 				519230062DBE570600D11067 /* Resources */,
+				519230092DBE5B1C00D11067 /* Models */,
 			);
 			name = klipboard;
 			packageProductDependencies = (

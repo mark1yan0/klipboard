@@ -10,7 +10,7 @@ import SwiftUI
 import AppKit
 
 class ClipboardManager: ObservableObject {
-    @Published var copied: [String] = []
+    @Published var copied: [ClipboardItem] = []
     private var changedCount = NSPasteboard.general.changeCount
     
     private var timer: Timer?
@@ -37,13 +37,14 @@ class ClipboardManager: ObservableObject {
         changedCount = pasteboard.changeCount
         if let newText = pasteboard.string(forType: .string) {
             
-            guard !self.copied.contains(newText) else {
-                // do not allow duplcates
+            // TODO: by id
+            guard !self.copied.contains(where: { $0.text() == newText } ) else {
+               // do not allow duplcates
                 return
             }
             
             DispatchQueue.main.async {
-                self.copied.insert(newText, at: 0)
+                self.copied.insert(ClipboardItem(text: newText), at: 0)
             }
         }
     }
@@ -56,8 +57,8 @@ class ClipboardManager: ObservableObject {
         pasteboard.setString(item, forType: .string)
     }
     
-    public func remove(item: String) {
-        if let index = copied.firstIndex(of: item) {
+    public func remove(item: ClipboardItem) {
+        if let index = copied.firstIndex(where: { $0.id == item.id }) {
             copied.remove(at: index)
         }
     }
