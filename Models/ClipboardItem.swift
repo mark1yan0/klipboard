@@ -17,7 +17,7 @@ class ClipboardItem: Identifiable {
     
     init(_ text: String) {
         self.id = UUID()
-        self.body = text
+        self.body = text.trimmingCharacters(in: .whitespacesAndNewlines)
         // TODO: look at how saved to db
         self.createdAt = Date()
     }

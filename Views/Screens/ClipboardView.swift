@@ -50,20 +50,23 @@ struct ClipboardView: View {
                         VStack {
                             Text(item.body)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.top, 4)
-                                .padding(.bottom, 8)
                             // TODO: format
-                            Text("CreatedAt: \(item.createdAt)")
-                                .font(.system(size: 10))
-                                .opacity(0.7)
-                                .frame(maxWidth: .infinity, alignment: .leading)
+                            // TODO: show in details view
+//                            Text("CreatedAt: \(item.createdAt)")
+//                                .font(.system(size: 10))
+//                                .opacity(0.7)
+//                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         
-                        Button("Copy", action: {
+                        Button(action: {
                             // will become double click
                             copyHandler(item.body)
-                        })
-                        Button("Delete", action: {
+                        }) {
+                            Image(systemName: "document.on.document")
+                        }
+                        .buttonStyle(.plain)
+                        // TODO: hover style
+                        Button(action: {
                             do {
                                 ctx.delete(item)
                                 try ctx.save()
@@ -71,36 +74,43 @@ struct ClipboardView: View {
                                 // TODO: more safety (error hanling)
                                 print("Failed to delete items.")
                             }
-                        })
+                        }) {
+                            Image(systemName: "trash")
+                        }
+                        .buttonStyle(.plain)
+                        .padding(.leading, 8)
+                        // TODO: hover style
                     }
+                    .padding(8)
+                    .background(Color.black.opacity(0.2))
+                    .cornerRadius(8)
                 }
+                .listRowSeparator(.hidden, edges: .bottom)
             }
+        }
+        .toolbar {
+            // TODO: title
+            Text(items.count == 1 ? "1 item copied" : "\(items.count) items copied")
+            Button(action: {
+                // TODO: show dialog
+                do {
+                    try ctx.delete(model: ClipboardItem.self)
+                    try ctx.save()
+                } catch {
+                    // TODO: more safety (error hanling)
+                    print("Failed to delete items.")
+                }
+            }) {
+                Image(systemName: "trash")
+            }
+            // TODO: show
+            .accessibilityLabel("Delete all items")
         }
         .onAppear {
             monitorEvents()
         }
         .onDisappear {
             timer?.invalidate()
-        }
-        .toolbar {
-            // TODO: title
-            Text(items.count == 1 ? "1 item copied" : "\(items.count) items copied")
-            Button(
-                action: {
-                    // TODO: show dialog
-                    do {
-                        try ctx.delete(model: ClipboardItem.self)
-                        try ctx.save()
-                    } catch {
-                        // TODO: more safety (error hanling)
-                        print("Failed to delete items.")
-                    }
-                }
-            ) {
-                Image(systemName: "trash")
-            }
-            // TODO: show
-            .accessibilityLabel("Delete all items")
         }
     }
 }

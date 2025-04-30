@@ -3,6 +3,8 @@
 ## Functionality
 
 - [ ] add readme
+- [x] add item on copy listener
+    - [x] remove whitespace
 - [x] add remove item
     - [x] bulk remove
 - [ ] add support for images
@@ -10,6 +12,8 @@
 - [ ] focus first item automatically
 - [ ] add keyboard navigation
 - [ ] add keyboard shortcut to open
+- [ ] dark/light theme
+- [ ] animations
 
 - [ ] add activity icon
 - [ ] settings
@@ -29,3 +33,4 @@
 
 - [x] refactor folder structure
 - [x] persistance with models and SwiftData
+- [ ] refactor components
