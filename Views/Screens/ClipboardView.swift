@@ -33,59 +33,26 @@ struct ClipboardView: View {
                 DispatchQueue.main.async {
                     ctx.insert(ClipboardItem(newText))
                     try? ctx.save()
-                    
                 }
             }
         }
     }
     
     // UI
+
+    // TODO: make copy on enter
+    @State private var selectedItem: ClipboardItem.ID?
     @Query(sort: \ClipboardItem.createdAt, order: .reverse) private var items: [ClipboardItem]
     var body: some View {
         VStack {
-            List {
-                ForEach(items) {
-                    item in HStack {
-                        Image(systemName: "textbox")
-                        VStack {
-                            Text(item.body)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            // TODO: format
-                            // TODO: show in details view
-//                            Text("CreatedAt: \(item.createdAt)")
-//                                .font(.system(size: 10))
-//                                .opacity(0.7)
-//                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                        
-                        Button(action: {
-                            // will become double click
-                            copyHandler(item.body)
-                        }) {
-                            Image(systemName: "document.on.document")
-                        }
-                        .buttonStyle(.plain)
-                        // TODO: hover style
-                        Button(action: {
-                            do {
-                                ctx.delete(item)
-                                try ctx.save()
-                            } catch {
-                                // TODO: more safety (error hanling)
-                                print("Failed to delete items.")
-                            }
-                        }) {
-                            Image(systemName: "trash")
-                        }
-                        .buttonStyle(.plain)
-                        .padding(.leading, 8)
-                        // TODO: hover style
-                    }
+            List(selection: $selectedItem) {
+                ForEach(items) { item in
+                    ClipboardRow(item: item, selectedItem: selectedItem)
                     .padding(8)
                     .background(Color.black.opacity(0.2))
                     .cornerRadius(8)
+                    .listRowSeparator(.hidden, edges: .bottom)
                 }
-                .listRowSeparator(.hidden, edges: .bottom)
             }
         }
         .toolbar {
@@ -98,7 +65,7 @@ struct ClipboardView: View {
                     try ctx.save()
                 } catch {
                     // TODO: more safety (error hanling)
-                    print("Failed to delete items.")
+                    print("Failed to delete items")
                 }
             }) {
                 Image(systemName: "trash")
@@ -120,3 +87,42 @@ func copyHandler(_ content: String) {
     pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
     pasteboard.setString(content, forType: .string)
 }
+
+struct ClipboardRow: View {
+    @Environment(\.modelContext) private var ctx
+    let item: ClipboardItem
+    let selectedItem: ClipboardItem.ID?
+    var body: some View {
+        HStack {
+            Image(systemName: "textbox")
+            Text(item.body)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Button(action: {
+                // will become double click
+                copyHandler(item.body)
+            }) {
+                Image(systemName: "document.on.document")
+            }
+            .buttonStyle(.plain)
+            // TODO: hover style
+            Button(action: {
+                do {
+                    ctx.delete(item)
+                    try ctx.save()
+                } catch {
+                    // TODO: more safety (error hanling)
+                    print("Failed to delete item.")
+                }
+            }) {
+                Image(systemName: "trash")
+            }
+            .buttonStyle(.plain)
+            .padding(.leading, 8)
+            // TODO: hover style
+        }
+        .tag(item.id)
+        // TODO: make copy on enter
+    }
+}
+

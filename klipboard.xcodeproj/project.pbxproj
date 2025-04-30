@@ -33,6 +33,7 @@
 		516F09EF2DBC36C00080C6DF /* klipboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = klipboardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51922FF42DBE561000D11067 /* klipboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = klipboard.entitlements; sourceTree = "<group>"; };
 		51922FF62DBE561000D11067 /* todo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = todo.md; sourceTree = "<group>"; };
+		519B274B2DC24D4A0018CF86 /* klipboard-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "klipboard-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -96,6 +97,7 @@
 		516F09CE2DBC36BF0080C6DF = {
 			isa = PBXGroup;
 			children = (
+				519B274B2DC24D4A0018CF86 /* klipboard-Info.plist */,
 				519230092DBE5B1C00D11067 /* Models */,
 				519230062DBE570600D11067 /* Resources */,
 				519230032DBE56AC00D11067 /* Views */,
@@ -428,6 +430,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "klipboard-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Klipboard;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,6 +458,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "klipboard-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Klipboard;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

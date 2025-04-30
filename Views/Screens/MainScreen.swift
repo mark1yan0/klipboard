@@ -15,7 +15,3 @@ struct MainScreen: View {
         .modelContainer(for: [ClipboardItem.self])
     }
 }
-
-#Preview {
-    MainScreen()
-}

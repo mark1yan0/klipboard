@@ -4,13 +4,16 @@
 
 - [ ] add readme
 - [x] add item on copy listener
+- [ ] copy button
     - [x] remove whitespace
 - [x] add remove item
     - [x] bulk remove
 - [ ] add support for images
+- [ ] add filters: text and images
 - [x] add persistance
 - [ ] focus first item automatically
 - [ ] add keyboard navigation
+    - [ ] copy on enter
 - [ ] add keyboard shortcut to open
 - [ ] dark/light theme
 - [ ] animations

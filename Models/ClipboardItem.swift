@@ -15,10 +15,9 @@ class ClipboardItem: Identifiable {
     @Attribute var body: String // TODO: handle images
     
     
-    init(_ text: String) {
+    init(_ content: String) {
         self.id = UUID()
-        self.body = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        // TODO: look at how saved to db
+        self.body = content.trimmingCharacters(in: .whitespacesAndNewlines)
         self.createdAt = Date()
     }
 }
