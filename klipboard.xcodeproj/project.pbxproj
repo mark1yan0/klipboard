@@ -56,11 +56,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		519230052DBE56F200D11067 /* Services */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Services;
-			sourceTree = "<group>";
-		};
 		519230062DBE570600D11067 /* Resources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Resources;
@@ -103,7 +98,6 @@
 			children = (
 				519230092DBE5B1C00D11067 /* Models */,
 				519230062DBE570600D11067 /* Resources */,
-				519230052DBE56F200D11067 /* Services */,
 				519230032DBE56AC00D11067 /* Views */,
 				519230022DBE563800D11067 /* App */,
 				516F09E82DBC36C00080C6DF /* klipboardTests */,
@@ -142,7 +136,6 @@
 			fileSystemSynchronizedGroups = (
 				519230022DBE563800D11067 /* App */,
 				519230032DBE56AC00D11067 /* Views */,
-				519230052DBE56F200D11067 /* Services */,
 				519230062DBE570600D11067 /* Resources */,
 				519230092DBE5B1C00D11067 /* Models */,
 			);

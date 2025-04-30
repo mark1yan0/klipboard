@@ -20,6 +20,7 @@
 - [ ] create a batter ui
 - [ ] define window width/height
 - [ ] create icons
+- [ ] elements count
 - [ ] add metadata
     - [ ] details view
     - [ ] copied at

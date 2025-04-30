@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct main: App {
@@ -14,4 +15,8 @@ struct main: App {
             MainScreen()
         }
     }
+}
+
+#Preview {
+    MainScreen()
 }

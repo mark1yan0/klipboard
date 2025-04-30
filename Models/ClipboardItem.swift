@@ -8,23 +8,17 @@
 import Foundation
 import SwiftData
 
-public struct ClipboardItem: Identifiable {
-    public let id: UUID
-    private let createdAt: Date
-    private let copiedText: String // TODO: handle images
+@Model
+class ClipboardItem: Identifiable {
+    @Attribute(.unique) var id: UUID
+    @Attribute var createdAt: Date
+    @Attribute var body: String // TODO: handle images
     
     
-    init(text: String) {
+    init(_ text: String) {
         self.id = UUID()
-        self.copiedText = text
+        self.body = text
+        // TODO: look at how saved to db
         self.createdAt = Date()
-    }
-    
-    public func text() -> String {
-        return copiedText
-    }
-    
-    public func date() -> Date {
-        return createdAt
     }
 }
