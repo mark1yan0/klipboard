@@ -13,6 +13,7 @@ struct ClipboardView: View {
     @State private var changedCount = NSPasteboard.general.changeCount
     @State private var timer: Timer?
     
+    // TODO: add scroll to top
     private func monitorEvents() {
         // TODO: solve this firing multiple times
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
@@ -83,6 +84,7 @@ struct ClipboardView: View {
         }
         .toolbar {
             // TODO: title
+            Text(items.count == 1 ? "1 item copied" : "\(items.count) items copied")
             Button(
                 action: {
                     // TODO: show dialog
