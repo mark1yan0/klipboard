@@ -10,9 +10,11 @@ import SwiftUI
 @main
 struct main: App {
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra("Klipboard", systemImage: "clipboard") {
             MainScreen()
+                .frame(width: 450, height: 700)
         }
+        .menuBarExtraStyle(.window)
     }
 }
 

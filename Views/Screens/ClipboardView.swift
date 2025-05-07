@@ -64,35 +64,15 @@ struct ClipboardView: View {
                 }
             }
         }
-        .toolbar {
-            // TODO: title
-            if showCopiedMessage {
-                Text("Copied item to clipboard")
-            } else {
-                Text(items.count == 1 ? "1 item copied" : "\(items.count) items copied")
-            }
-            
-            Button(action: {
-                // TODO: show dialog
-                do {
-                    try ctx.delete(model: ClipboardItem.self)
-                    try ctx.save()
-                } catch {
-                    // TODO: more safety (error hanling)
-                    print("Failed to delete items")
-                }
-            }) {
-                Image(systemName: "trash")
-            }
-            // TODO: show
-            .accessibilityLabel("Delete all items")
-        }
         .onAppear {
             monitorEvents()
         }
         .onDisappear {
             timer?.invalidate()
         }
+        
+        BottomBarView(showCopiedMessage: showCopiedMessage)
+            .padding(2)
     }
 }
 
