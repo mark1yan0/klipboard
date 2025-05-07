@@ -19,10 +19,15 @@
 - [ ] add keyboard shortcut to open
 - [ ] dark/light theme
 - [ ] animations
+- [ ] launch on startup
 
 - [ ] add activity icon
+- [ ] add menu on activity icon
+    - [ ] settings
+    - [ ] quit 
 - [ ] settings
     - [ ] change keyboard shortcut
+    - [ ] launch on startup
 
 ## UI
 
