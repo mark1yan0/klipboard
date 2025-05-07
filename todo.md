@@ -30,6 +30,10 @@
 - [ ] define window width/height
 - [ ] create icons
 - [x] elements count
+- [ ] bottom bar
+    - [x] bulk delete
+    - [x] count
+    - [x] copied message
 - [ ] add metadata
     - [ ] details view
     - [ ] copied at
