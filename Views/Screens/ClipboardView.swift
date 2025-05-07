@@ -41,16 +41,14 @@ struct ClipboardView: View {
     // UI
 
     // TODO: make copy on enter
-    @State private var selectedItem: ClipboardItem.ID?
+//    @State private var selectedItem: ClipboardItem.ID?
     @Query(sort: \ClipboardItem.createdAt, order: .reverse) private var items: [ClipboardItem]
     var body: some View {
         VStack {
-            List(selection: $selectedItem) {
+//            List(selection: $selectedItem) {
+            List {
                 ForEach(items) { item in
-                    ClipboardRow(item: item, selectedItem: selectedItem)
-                    .padding(8)
-                    .background(Color.black.opacity(0.2))
-                    .cornerRadius(8)
+                    ClipboardRowView(item: item) // , selectedItem: selectedItem)
                     .listRowSeparator(.hidden, edges: .bottom)
                 }
             }
@@ -87,42 +85,3 @@ func copyHandler(_ content: String) {
     pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
     pasteboard.setString(content, forType: .string)
 }
-
-struct ClipboardRow: View {
-    @Environment(\.modelContext) private var ctx
-    let item: ClipboardItem
-    let selectedItem: ClipboardItem.ID?
-    var body: some View {
-        HStack {
-            Image(systemName: "textbox")
-            Text(item.body)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Button(action: {
-                // will become double click
-                copyHandler(item.body)
-            }) {
-                Image(systemName: "document.on.document")
-            }
-            .buttonStyle(.plain)
-            // TODO: hover style
-            Button(action: {
-                do {
-                    ctx.delete(item)
-                    try ctx.save()
-                } catch {
-                    // TODO: more safety (error hanling)
-                    print("Failed to delete item.")
-                }
-            }) {
-                Image(systemName: "trash")
-            }
-            .buttonStyle(.plain)
-            .padding(.leading, 8)
-            // TODO: hover style
-        }
-        .tag(item.id)
-        // TODO: make copy on enter
-    }
-}
-

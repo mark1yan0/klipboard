@@ -4,8 +4,9 @@
 
 - [ ] add readme
 - [x] add item on copy listener
-- [ ] copy button
+- [x] copy button
     - [x] remove whitespace
+    - [x] make copy on full button click
 - [x] add remove item
     - [x] bulk remove
 - [ ] add support for images
@@ -37,3 +38,4 @@
 - [x] refactor folder structure
 - [x] persistance with models and SwiftData
 - [ ] refactor components
+- [ ] add .gitignore (seach for files to ignore)
