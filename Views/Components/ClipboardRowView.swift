@@ -12,10 +12,12 @@ import SwiftUI
 struct ClipboardRowView: View {
     @Environment(\.modelContext) private var ctx
     let item: ClipboardItem
+    var onCopy: () -> Void
     var body: some View {
         HStack {
             Button(action: {
                 copyHandler(item.body)
+                onCopy()
             }) {
                 HStack {
                     Image(systemName: "textbox")

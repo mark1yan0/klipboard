@@ -15,7 +15,6 @@ struct ClipboardView: View {
     
     // TODO: add scroll to top
     private func monitorEvents() {
-        // TODO: solve this firing multiple times
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             let pasteboard = NSPasteboard.general
             
@@ -38,24 +37,41 @@ struct ClipboardView: View {
         }
     }
     
+    
+    @State private var showCopiedMessage: Bool = false
+    func flashOnCopy() {
+        withAnimation {
+            showCopiedMessage = true
+        }
+        // remove after timeout
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            withAnimation {
+                showCopiedMessage = false
+            }
+        }
+    }
+    
     // UI
-
-    // TODO: make copy on enter
-//    @State private var selectedItem: ClipboardItem.ID?
     @Query(sort: \ClipboardItem.createdAt, order: .reverse) private var items: [ClipboardItem]
     var body: some View {
         VStack {
-//            List(selection: $selectedItem) {
             List {
                 ForEach(items) { item in
-                    ClipboardRowView(item: item) // , selectedItem: selectedItem)
+                    ClipboardRowView(item: item) {
+                        flashOnCopy()
+                    }
                     .listRowSeparator(.hidden, edges: .bottom)
                 }
             }
         }
         .toolbar {
             // TODO: title
-            Text(items.count == 1 ? "1 item copied" : "\(items.count) items copied")
+            if showCopiedMessage {
+                Text("Copied item to clipboard")
+            } else {
+                Text(items.count == 1 ? "1 item copied" : "\(items.count) items copied")
+            }
+            
             Button(action: {
                 // TODO: show dialog
                 do {
