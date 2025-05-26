@@ -37,16 +37,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		516F09E82DBC36C00080C6DF /* klipboardTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = klipboardTests;
-			sourceTree = "<group>";
-		};
-		516F09F22DBC36C00080C6DF /* klipboardUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = klipboardUITests;
-			sourceTree = "<group>";
-		};
 		519230022DBE563800D11067 /* App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = App;
@@ -108,8 +98,6 @@
 				519230062DBE570600D11067 /* Resources */,
 				519230032DBE56AC00D11067 /* Views */,
 				519230022DBE563800D11067 /* App */,
-				516F09E82DBC36C00080C6DF /* klipboardTests */,
-				516F09F22DBC36C00080C6DF /* klipboardUITests */,
 				516F09D82DBC36BF0080C6DF /* Products */,
 				51922FF42DBE561000D11067 /* klipboard.entitlements */,
 				51922FF62DBE561000D11067 /* todo.md */,
@@ -168,9 +156,6 @@
 			dependencies = (
 				516F09E72DBC36C00080C6DF /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				516F09E82DBC36C00080C6DF /* klipboardTests */,
-			);
 			name = klipboardTests;
 			packageProductDependencies = (
 			);
@@ -190,9 +175,6 @@
 			);
 			dependencies = (
 				516F09F12DBC36C00080C6DF /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				516F09F22DBC36C00080C6DF /* klipboardUITests */,
 			);
 			name = klipboardUITests;
 			packageProductDependencies = (
