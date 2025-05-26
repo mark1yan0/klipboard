@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainScreen: View {
     var body: some View {
+        TopBarView()
         ClipboardView()
         .modelContainer(for: [ClipboardItem.self])
     }

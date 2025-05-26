@@ -22,10 +22,10 @@
 - [ ] animations
 - [ ] launch on startup
 
-- [ ] add activity icon
-- [ ] add menu on activity icon
+- [x] add activity icon
+- [x] add options to
     - [ ] settings
-    - [ ] quit 
+    - [x] quit 
 - [ ] settings
     - [ ] change keyboard shortcut
     - [ ] launch on startup
