@@ -4,6 +4,7 @@
 
 - [ ] add readme
 - [x] add item on copy listener
+- [ ] listen to mutliple items copied when is not opened
 - [x] copy button
     - [x] remove whitespace
     - [x] make copy on full button click

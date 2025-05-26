@@ -9,35 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct ClipboardView: View {
+    @State private var monitor: ClipboardMonitor?
     @Environment(\.modelContext) private var ctx
-    @State private var changedCount = NSPasteboard.general.changeCount
-    @State private var timer: Timer?
-    
-    // TODO: add scroll to top
-    private func monitorEvents() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            let pasteboard = NSPasteboard.general
-            
-            guard pasteboard.changeCount != changedCount else {
-                return
-            }
-            
-            changedCount = pasteboard.changeCount
-            if let newText = pasteboard.string(forType: .string) {
-                guard !items.contains(where: { $0.body == newText } ) else {
-                   // do not allow duplcates
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    ctx.insert(ClipboardItem(newText))
-                    try? ctx.save()
-                }
-            }
-        }
-    }
-    
-    
+
     @State private var showCopiedMessage: Bool = false
     func flashOnCopy() {
         withAnimation {
@@ -65,10 +39,9 @@ struct ClipboardView: View {
             }
         }
         .onAppear {
-            monitorEvents()
-        }
-        .onDisappear {
-            timer?.invalidate()
+            if monitor == nil {
+                monitor = ClipboardMonitor(ctx: ctx)
+            }
         }
         
         BottomBarView(showCopiedMessage: showCopiedMessage)
